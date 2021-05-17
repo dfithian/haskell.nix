@@ -488,7 +488,7 @@ let
       lib.optionalString (configureAllComponents || keepSource) ''
         mv dist dist-tmp-dir
         mkdir -p dist/build
-        if [ -d dist-tmp-dir/build/${componentId.cname} ]; then
+        if [ -d dist-tmp-dir/build/${componentId.cname} && -f dist-tmp-dir/build/${componentId.cname}/autogen ]; then
           mv dist-tmp-dir/build/${componentId.cname}/autogen dist/build/
         else
           mv dist-tmp-dir/build/autogen dist/build/
